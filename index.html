@@ -9,7 +9,7 @@
             /* Endret til Times New Roman overalt */
             font-family: 'Times New Roman', Times, serif;
             background-color: #0d0d0d;
-            background-image: url('https://unsplash.com');
+            background-image: url('https://i.pinimg.com/736x/38/a5/31/38a531cd4e59b076c5c7f3fefaf9f421.jpg);
             background-repeat: repeat;
             background-size: 300px;
             color: #ffffff;
@@ -67,20 +67,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             max-width: 800px;
             margin: 30px auto;
-        }
-
-        .content-section {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-            text-align: left;
-            /* Skjuler seksjoner som standard via JavaScript */
-            display: none; 
-        }
-
-        /* Viser den aktive seksjonen */
-        .content-section.active {
-            display: block;
+      
         }
 
         .content-section h2 {
@@ -159,23 +146,12 @@
             <div class="menu-container">
                 <span class="menu-label">Navigate to:</span>
                 <select id="page-navigator" onchange="switchPage(this.value)">
-                    <option value="interact">Comment or sign here! (Interact)</option>
                     <option value="games">Computer games</option>
                 </select>
             </div>
         </header>
 
         <div class="section-divider"></div>
-
-        <!-- KOMMENTAR SEKSJON (STARTSIDE) -->
-        <section class="content-section active" id="interact">
-            <h2>Comments & signatures</h2>
-            
-            <div class="iframe-container form-box">
-                <!-- Google Forms rammekode -->
-                <iframe src="https://google.com">Loading form...</iframe>
-            </div>
-        </section>
 
         <!-- PC-SPILL SEKSJON (EGET STED VIA MENY) -->
         <section class="content-section" id="games">
@@ -189,10 +165,10 @@
                 </p>
                 <p class="date">21.10.2026</p>
 
-                <!-- Scratch-spillet -->
-                <div class="iframe-container scratch-box">
-                    <iframe src="https://mit.edu" allowtransparency="true" scrolling="no" allowfullscreen></iframe>
-                </div>
+               <!-- Scratch-spillet -->
+<div class="iframe-container scratch-box">
+    <iframe src="https://scratch.mit.edu/projects/1394206713/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+</div>
             </div>
         </section>
 
