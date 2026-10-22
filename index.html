@@ -1,199 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dabbingbat games</title>
-    <style>
-        body {
-            /* Endret til Times New Roman overalt */
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #0d0d0d;
-            background-image: url('https://i.pinimg.com/736x/38/a5/31/38a531cd4e59b076c5c7f3fefaf9f421.jpg);
-            background-repeat: repeat;
-            background-size: 300px;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .overlay {
-            background-color: rgba(0, 0, 0, 0.65);
-            min-height: 100vh;
-            box-sizing: border-box;
-            padding-bottom: 60px;
-        }
-
-        header {
-            padding: 60px 20px 20px 20px;
-        }
-
-        h1 {
-            font-size: 4rem;
-            font-weight: 400;
-            margin: 0 0 30px 0;
-            letter-spacing: 2px;
-        }
-
-        /* Styling for rullemenyen (Dropdown) */
-        .menu-container {
-            margin-bottom: 40px;
-        }
-
-        .menu-label {
-            font-size: 1.2rem;
-            margin-right: 10px;
-            vertical-align: middle;
-        }
-
-        select {
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #1a1a1a;
-            color: #ffffff;
-            border: 1px solid #444;
-            padding: 10px 20px;
-            font-size: 1.1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            outline: none;
-        }
-
-        select:hover {
-            border-color: #888;
-        }
-
-        .section-divider {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 800px;
-            margin: 30px auto;
-      
-        }
-
-        .content-section h2 {
-            font-size: 3rem;
-            font-weight: 400;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .game-title {
-            font-size: 2.5rem;
-            font-weight: 400;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        .game-description {
-            font-size: 1.25rem;
-            line-height: 1.7;
-            color: #ffffff;
-            margin-bottom: 10px;
-        }
-
-        .date {
-            color: #888888;
-            font-size: 0.95rem;
-            margin-bottom: 30px;
-        }
-
-        /* Rammer for Scratch og Google Forms */
-        .iframe-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            max-width: 485px;
-            margin: 30px auto;
-            border: 2px solid #222;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-        }
-
-        .scratch-box {
-            padding-top: 402px;
-        }
-
-        .form-box {
-            max-width: 640px;
-            padding-top: 600px;
-        }
-
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
-        footer {
-            margin-top: 100px;
-            padding: 40px;
-            color: #888888;
-            font-size: 0.9rem;
-        }
-    </style>
+    <title>Dabbingbat Games</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="overlay">
-
-        <!-- HEADLINE -->
-        <header>
-            <h1>Dabbingbat games</h1>
-            
-            <!-- RULLEMENY (DROPDOWN) -->
-            <div class="menu-container">
-                <span class="menu-label">Navigate to:</span>
-                <select id="page-navigator" onchange="switchPage(this.value)">
-                    <option value="games">Computer games</option>
-                </select>
-            </div>
-        </header>
-
-        <div class="section-divider"></div>
-
-        <!-- PC-SPILL SEKSJON (EGET STED VIA MENY) -->
-        <section class="content-section" id="games">
-            <h2>Computer games</h2>
-            
-            <div class="game-item">
-                <h3 class="game-title">Save da bat</h3>
-                
-                <p class="game-description">
-                    My first ever scratch.mit.edu game, "Save da bat". Avoid the deathly garlic by using the space key to jump! To make this game i followed a tutorial from "BinzuDev" on youtube.
-                </p>
-                <p class="date">21.10.2026</p>
-
-               <!-- Scratch-spillet -->
-<div class="iframe-container scratch-box">
-    <iframe src="https://scratch.mit.edu/projects/1394206713/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
-</div>
-            </div>
-        </section>
-
-        <footer>
-            &copy; 2026 Dabbingbat Games
-        </footer>
-
+    <!-- Rullemeny (Dropdown) i hjørnet -->
+    <div class="nav-container">
+        <select id="page-select" onchange="switchPage()">
+            <option value="home">Home</option>
+            <option value="computer-games">Computer Games</option>
+        </select>
     </div>
 
-    <!-- JAVASCRIPT: Sørger for at sidene byttes ut når du velger i rullemenyen -->
-    <script>
-        function switchPage(sectionId) {
-            // Skjul alle seksjoner først
-            var sections = document.querySelectorAll('.content-section');
-            sections.forEach(function(section) {
-                section.classList.remove('active');
-            });
+    <!-- FORSIdEN (Home) -->
+    <section id="home-page" class="page active">
+        <div class="home-content">
+            <h1>Dabbingbat Games</h1>
+        </div>
+    </section>
+
+    <!-- DATAMASKIN-SPILL (Computer Games) -->
+    <section id="computer-games-page" class="page">
+        <div class="games-container">
             
-            // Vis den seksjonen som ble valgt i rullemenyen
-            var activeSection = document.getElementById(sectionId);
-            if (activeSection) {
-                activeSection.classList.add('active');
+            <!-- Første innlegg: Save da bat -->
+            <div class="game-card">
+                <div class="game-text">
+                    <h2>Save da bat</h2>
+                    <p class="date">21.10.2026</p>
+                    <p>My first ever scratch.mit.edu game, "Save da bat". Avoid the deathly garlic by using the space key to jump! To make this game i followed a tutorial from "BinzuDev" on youtube.</p>
+                </div>
+                
+                <div class="game-embed">
+                    <iframe src="https://scratch.mit.edu/projects/1394206713/embed" allowtransparency="true" width="485" height="402" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Enkel JavaScript for å bytte mellom sidene -->
+    <script>
+        function switchPage() {
+            const select = document.getElementById('page-select');
+            const homePage = document.getElementById('home-page');
+            const gamesPage = document.getElementById('computer-games-page');
+
+            if (select.value === 'home') {
+                homePage.classList.add('active');
+                gamesPage.classList.remove('active');
+            } else {
+                homePage.classList.remove('active');
+                gamesPage.classList.add('active');
             }
         }
     </script>
-
 </body>
 </html>
