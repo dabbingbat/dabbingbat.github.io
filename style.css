@@ -1,0 +1,116 @@
+/* Globale innstillinger */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif; /* Setter Times New Roman overalt */
+}
+
+body {
+    /* Henter Unsplash-bildet ditt og bruker som fast bakgrunn */
+    background: url('https://unsplash.com') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff; /* Hvit tekst så det synes godt på den mørke bakgrunnen */
+    min-height: 100vh;
+}
+
+/* Rullemeny øverst i høyre hjørne */
+.nav-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.nav-container select {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: 1px solid #ffffff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Styring av hvilken side som vises */
+.page {
+    display: none; /* Skjuler sidene som standard */
+    min-height: 100vh;
+    padding: 80px 20px 40px 20px;
+}
+
+.page.active {
+    display: flex; /* Viser kun den aktive siden */
+}
+
+/* Forsiden (Home) */
+#home-page {
+    justify-content: center;
+    align-items: center;
+}
+
+.home-content h1 {
+    font-size: 4rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+/* Computer Games-siden */
+.games-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.game-card {
+    background-color: rgba(0, 0, 0, 0.75); /* Gjennomsiktig sort boks rundt spillet */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 8px;
+    display: flex; /* Sætter tekst og spill ved siden av hverandre */
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+}
+
+.game-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.game-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+}
+
+.game-text .date {
+    font-style: italic;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.game-text p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.game-embed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-embed iframe {
+    border: none;
+    max-width: 100%;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.5);
+}
+
+/* Responsivt design for mindre skjermer (f.eks. mobil) */
+@media (max-width: 850px) {
+    .game-card {
+        flex-direction: column; /* Legger spillet under teksten på mobil */
+        text-align: center;
+    }
+}
