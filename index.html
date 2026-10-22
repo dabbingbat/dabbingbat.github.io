@@ -4,7 +4,156 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dabbingbat Games</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Globale innstillinger */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            /* Direkte bakgrunn som tvinger nettleseren til å vise det mørke blondemønsteret ditt */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://unsplash.com');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Rullemeny øverst i høyre hjørne */
+        .nav-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .nav-container select {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 18px;
+            padding: 8px 12px;
+            background-color: rgba(0, 0, 0, 0.85);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* Styring av hvilken side som vises */
+        .page {
+            display: none;
+            flex: 1;
+            padding: 100px 20px 80px 20px;
+        }
+
+        .page.active {
+            display: flex;
+        }
+
+        /* Forsiden (Home) */
+        #home-page {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-content h1 {
+            font-size: 5rem;
+            text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.9);
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        /* Computer Games-siden */
+        .games-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .game-card {
+            background-color: rgba(15, 15, 15, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .game-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .game-text h2 {
+            font-size: 2.8rem;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .game-text .date {
+            font-style: italic;
+            color: #a0a0a0;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .game-text p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        .game-embed {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .game-embed iframe {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            max-width: 100%;
+            box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Den kule bunnteksten (Footer) */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.1rem;
+            width: 100%;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            letter-spacing: 1px;
+        }
+
+        /* Responsivt design for mobil */
+        @media (max-width: 900px) {
+            .game-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .home-content h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
